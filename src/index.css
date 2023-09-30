@@ -1,0 +1,39 @@
+@import url('../src/vendor/normalize.css');
+@import url('../src/vendor/fonts/fonts.css');
+
+@import url('../src/blocks/page/page.css');
+
+/* header */
+@import url('../src/blocks/header/header.css');
+@import url('../src/blocks/header/__logo/header__logo.css');
+@import url('../src/components/SpanTemplate/SpanTemplate.css');
+
+@import url('../src/blocks/link-active/link-active.css');
+
+/* navigation */
+@import url('../src/components/Navigation/Navigation.css');
+
+@import url('../src/components/TitleTemplate/TitleTemplate.css');
+@import url('../src/components/Main/Main.css');
+@import url('../src/components/Promo/Promo.css');
+@import url('../src/components/NavTab/NavTab.css');
+
+@import url('../src/components/AboutProject/AboutProject.css');
+@import url('../src/components/SectionTitle/SectionTitle.css');
+@import url('../src/components/ArticleInfo/ArticleInfo.css');
+
+@import url('../src/components/TimeLine/TimeLine.css');
+@import url('../src/components/TimeLineItem/TimeLineItem.css');
+
+@import url('../src/components/Techs/Techs.css');
+@import url('../src/components/TechsList/TechsList.css');
+@import url('../src/components/TechsListItem/TechsListItem.css');
+
+@import url('../src/components/AboutMe/AboutMe.css');
+@import url('../src/components/AboutMeInfo/AboutMeInfo.css');
+@import url('../src/components/AboutMeText/AboutMeText.css');
+@import url('../src/components/AboutMePhoto/AboutMePhoto.css');
+@import url('../src/components/Portfolio/Portfolio.css');
+@import url('../src/components/PortfolioItem/PortfolioItem.css');
+
+@import url('../src/components/Footer/Footer.css');

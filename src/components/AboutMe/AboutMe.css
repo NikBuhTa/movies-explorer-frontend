@@ -1,0 +1,8 @@
+.aboutme{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 110px 70px 125px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}

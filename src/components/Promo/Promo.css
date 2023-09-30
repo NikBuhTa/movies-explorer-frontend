@@ -1,0 +1,19 @@
+.promo{
+    padding: 82px 0 122px;
+    background-color: #465DFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.promo__image {
+}
+
+.promo__title{
+    margin: 0;
+    position: absolute;
+    max-width: 730px;
+    text-align: center;
+}

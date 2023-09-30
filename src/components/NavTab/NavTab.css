@@ -1,0 +1,20 @@
+.menu{
+    margin: 0 auto;
+    padding: 24px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
+    width: 100%;
+}
+
+.menu__link{
+    color: black;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    margin-left: 40px;
+}

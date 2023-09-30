@@ -1,0 +1,41 @@
+.nav {
+    margin: 0;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    cursor: pointer;
+}
+
+.nav__films-link {
+    margin-right: 16px;
+}
+
+.nav__saved-films-link {
+}
+
+.nav__reg-link {
+    font-weight: 500;
+    margin-right: 30px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.nav__log-link {
+    border-radius: 3px;
+    width: 76px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    background-color: #2BE080;
+    color: black;
+}

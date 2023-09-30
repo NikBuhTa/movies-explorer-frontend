@@ -1,0 +1,8 @@
+.aboutme__photo{
+    margin: 0;
+    padding: 0;
+    height: 327px;
+    width: 270px;
+    object-fit: cover;
+    border-radius: 10px;
+}
