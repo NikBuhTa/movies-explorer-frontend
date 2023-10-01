@@ -1,0 +1,6 @@
+.movies{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 60px 70px 0;
+    width: 100%;
+}

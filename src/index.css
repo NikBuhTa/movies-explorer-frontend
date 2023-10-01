@@ -1,14 +1,11 @@
 @import url('../src/vendor/normalize.css');
 @import url('../src/vendor/fonts/fonts.css');
 
-@import url('../src/blocks/page/page.css');
+@import url('../src/components/App/App.css');
 
 /* header */
-@import url('../src/blocks/header/header.css');
-@import url('../src/blocks/header/__logo/header__logo.css');
+@import url('../src/components/Header/Header.css');
 @import url('../src/components/SpanTemplate/SpanTemplate.css');
-
-@import url('../src/blocks/link-active/link-active.css');
 
 /* navigation */
 @import url('../src/components/Navigation/Navigation.css');
@@ -37,3 +34,9 @@
 @import url('../src/components/PortfolioItem/PortfolioItem.css');
 
 @import url('../src/components/Footer/Footer.css');
+
+@import url('../src/components/Movies/Movies.css');
+@import url('../src/components/SearchForm/SearchForm.css');
+
+@import url('../src/components/MoviesCardList/MoviesCardList.css');
+@import url('../src/components/MoviesCard/MoviesCard.css');

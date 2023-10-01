@@ -1,7 +1,0 @@
-.link-active{
-    transition: .2s;
-}
-
-.link-active:hover{
-    opacity: .7;
-}

@@ -1,0 +1,113 @@
+.search{
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.search__input{
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+}
+
+.search__input-item{
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 14px 0 14px 22px;
+    color: #A0A0A0;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 17px;
+    border: none;
+    border-radius: 40px;
+    background-color: #F9F9F9;
+}
+
+.search__input-item:focus{
+    outline-color:#A0A0A0;
+}
+
+.search__button{
+    position: absolute;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #FF6838;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 34px;
+    width: 80px;
+    right: 6px;
+}
+
+.search__choice{
+    width: 100%;
+    margin: 0;
+    padding: 42px 0 70px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.search__short-text{
+    margin: 0;
+    color: black;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.search__thumb-label{
+    height: 20px;
+    width: 32px;
+    position: relative;
+}
+
+.search__thumb{
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.search__thumb-icon{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #EBEBEB;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.search__thumb-icon::before{
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    left: 2px;
+    background-color: white;
+    transition: .4s;
+}
+
+.search__thumb:checked + .search__thumb-icon{
+    background-color: #2BE080;
+}
+
+.search__thumb:checked + .search__thumb-icon::before{
+    transform: translate(12px, -8px);
+}
