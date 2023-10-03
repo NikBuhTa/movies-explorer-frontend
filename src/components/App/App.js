@@ -1,38 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
-import Header from '../Header.js';
+import Header from '../Header/Header';
 import SpanTemplate from '../SpanTemplate/SpanTemplate.js';
 import Navigation from '../Navigation/Navigation.js';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
 import Movies from '../Movies/Movies.js';
 import { useState } from 'react';
+import HeaderAuthPromo from '../HeaderAuthPromo/HeaderAuthPromo';
+import HeaderNoAuth from '../HeaderNoAuth/HeaderNoAuth';
 
 function App() {
   
-  const [login, setLogin] = useState(true); //use true/false to validate header
-
+  const [login, setLogin] = useState(false);
+//HeaderAuthFilms
   return (
     <>
-      {login ? <Header children={
-        <>
-          <Navigation children={
-            <>
-              <SpanTemplate className='nav__films-link' text='Фильмы' />
-              <SpanTemplate className='nav__saved-films-link' text='Сохраненные фильмы' />
-            </>
-          }/>
-          <SpanTemplate className='header__account-link' text='Аккаунт'/>
-        </>
-        }/> :
-        <Header children={
-          <Navigation children={
-            <>
-              <SpanTemplate className='nav__reg-link' text='Регистрация' />
-              <SpanTemplate className='nav__log-link' text='Войти' />
-            </>
-          }/>
-        }/>
-      }
+      {login ? <HeaderAuthPromo /> : <HeaderNoAuth /> } 
       <Routes>
         <Route path='/' element={ <Main /> } />
         <Route path='movies' element={ <Movies />} />

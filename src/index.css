@@ -5,6 +5,7 @@
 
 /* header */
 @import url('../src/components/Header/Header.css');
+@import url('../src/components/HeaderAuthFilms/HeaderAuthFilms.css');
 @import url('../src/components/SpanTemplate/SpanTemplate.css');
 
 /* navigation */
