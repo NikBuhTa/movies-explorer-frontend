@@ -4,10 +4,12 @@
 @import url('../src/components/App/App.css');
 
 /* header */
+@import url('../src/components/HeaderAuthForm/HeaderAuthForm.css');
 @import url('../src/components/Header/Header.css');
 @import url('../src/components/HeaderAuthFilms/HeaderAuthFilms.css');
 @import url('../src/components/SpanTemplate/SpanTemplate.css');
-
+@import url('../src/components/ButtonTemplate/ButtonTemplate.css');
+@import url('../src/components/AnchorTemplate/AnchorTemplate.css');
 /* navigation */
 @import url('../src/components/Navigation/Navigation.css');
 
@@ -41,3 +43,10 @@
 
 @import url('../src/components/MoviesCardList/MoviesCardList.css');
 @import url('../src/components/MoviesCard/MoviesCard.css');
+
+@import url('../src/components/PageNotFound/PageNotFound.css');
+@import url('../src/components/SavedMovies/SavedMovies.css');
+@import url('../src/components/MoviesPage/MoviesPage.css');
+@import url('../src/components/AuthForm/AuthForm.css');
+@import url('../src/components/Profile/Profile.css');
+@import url('../src/components/LinkTemplate/LinkTemplate.css');

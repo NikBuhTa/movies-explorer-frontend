@@ -17,3 +17,9 @@
     max-width: 730px;
     text-align: center;
 }
+
+@media screen and (max-width: 768px) {
+    .promo{
+        padding: 224px 0 240px;
+    }
+}

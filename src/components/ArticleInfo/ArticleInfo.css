@@ -1,9 +1,9 @@
-.about-project-description{
+.about-project__description{
     width: 100%;
     box-sizing: border-box;
 }
 
-.about-project-description-title{
+.about-project__description_title{
     margin: 0 0 26px 0;
     font-family: 'Inter';
     font-size: 20px;
@@ -11,10 +11,17 @@
     line-height: 24px;
 }
 
-.about-project-description-text{
+.about-project__description_text{
     margin: 0;
     font-family: Inter;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .about-project__description_text{
+        font-size: 12px;
+        line-height: 18px;
+    }
 }

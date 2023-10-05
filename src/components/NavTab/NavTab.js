@@ -1,12 +1,12 @@
 import React from "react";
-import SpanTemplate from "../SpanTemplate/SpanTemplate";
+import AnchorTemplate from "../AnchorTemplate/AnchorTemplate";
 
-function NavTab() {
+function NavTab({handleScrollAboutProj, handleScrollAboutMe, handleScrollTechs}) {
     return(
         <menu className="menu">
-            <SpanTemplate className='menu__link' text='О проекте' />
-            <SpanTemplate className='menu__link' text='Технологии' />
-            <SpanTemplate className='menu__link' text='Студент' />
+            <AnchorTemplate onClick={handleScrollAboutProj} className='menu__link link-active' text='О проекте' anchor='#aboutProject' />
+            <AnchorTemplate onClick={handleScrollTechs} className='menu__link link-active' text='Технологии' anchor='#techs'/>
+            <AnchorTemplate onClick={handleScrollAboutMe} className='menu__link link-active' text='Студент' anchor='#aboutMe'/>
         </menu>
     );
 }

@@ -15,7 +15,22 @@
     cursor: pointer;
 }
 
+.aboutme__portfolio-image{
+    width: 29px;
+    height: 60px;
+}
+
 .aboutme__portfolio-item:last-of-type{
     border: none;
     padding-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .aboutme__portfolio-link{
+        font-size: 28px;
+    }
+
+    .aboutme__portfolio-image{
+        width: 27px;
+    }
 }

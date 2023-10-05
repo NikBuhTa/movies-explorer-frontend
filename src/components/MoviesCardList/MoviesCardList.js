@@ -1,12 +1,11 @@
 import React from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
-import films from '../../utils/constants.js';
 
-function MoviesCardList(){
+function MoviesCardList({films, type}){
     return(
         <ul className="movies__list">
             { films.map((film) => 
-                (<MoviesCard key={film.id} duration={film.duration} nameRU={film.nameRU} image={film.image} />)
+                (<MoviesCard type={type} key={film.id} duration={film.duration} nameRU={film.nameRU} image={film.image} />)
             ) }
         </ul>
     );

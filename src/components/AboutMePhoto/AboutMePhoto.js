@@ -1,5 +1,5 @@
 import React from "react";
-import path from '../../images/aboutme__photo.jpg'
+import path from '../../images/aboutme__photo.svg'
 
 function AboutMePhoto() {
     return(

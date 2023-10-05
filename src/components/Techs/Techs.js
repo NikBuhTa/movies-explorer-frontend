@@ -3,9 +3,9 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 import TitleTemplate from "../TitleTemplate/TitleTemplate";
 import TechsList from "../TechsList/TechsList";
 
-function Techs() {
+const Techs = React.forwardRef((props, ref) => {
     return(
-        <section className="techs">
+        <section ref={ref} id="techs" className="techs">
             <SectionTitle text='Технологии' />
             <div className="techs__container">
                 <h2 className="techs__title">
@@ -16,6 +16,6 @@ function Techs() {
             </div>
         </section>
     );
-};
+});
 
 export default Techs;

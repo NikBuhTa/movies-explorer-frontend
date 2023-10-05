@@ -111,3 +111,9 @@
 .search__thumb:checked + .search__thumb-icon::before{
     transform: translate(12px, -8px);
 }
+
+@media screen and (max-width: 768px) {
+    .search__choice{
+        padding-bottom: 51px;
+    }
+}

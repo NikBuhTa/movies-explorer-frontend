@@ -1,6 +1,6 @@
 import path from '../images/test.jpg'
 
-const films = [
+export const films = [
     {
         duration: '2ч33м',
         image: path,
@@ -75,4 +75,17 @@ const films = [
     },
 ]
 
-export default films;
+export const savedFilms = [
+    {
+        duration: '2ч33м',
+        image: path,
+        nameRU: 'Это отличный фильм',
+        id: 1,
+    },
+    {
+        duration: '2ч33м',
+        image: path,
+        nameRU: 'Это отличный фильм',
+        id: 2,
+    },
+];

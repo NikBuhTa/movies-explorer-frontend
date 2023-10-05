@@ -21,3 +21,9 @@
     flex-direction: column;
     gap: 20px;
 }
+
+@media screen and (max-width: 768px) {
+    .aboutme__portfolio{
+        padding-top: 91px;
+    }
+}

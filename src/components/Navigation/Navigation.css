@@ -9,10 +9,24 @@
     font-size: 13px;
     line-height: 18px;
     cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav_noauth{
+    position: static;
+    left: 0;
+    transform: none;
 }
 
 .nav__films-link {
     margin-right: 16px;
+}
+
+.nav__link-active{
+    border-bottom: 1px solid black;
+    font-weight: 500;
 }
 
 .nav__saved-films-link {

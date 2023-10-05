@@ -3,9 +3,9 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 import ArticleInfo from "../ArticleInfo/ArticleInfo";
 import TimeLine from "../TimeLine/TimeLine";
 
-function AboutProject() {
+const AboutProject = React.forwardRef((props, ref) => {
     return(
-        <section className="about-project">
+        <section ref={ref} id='aboutProject' className="about-project">
             <SectionTitle text='О проекте' />
             <div className="about-project__descriptions">
                 <ArticleInfo title='Дипломный проект включал 5&nbsp;этапов' text='Составление плана, работу над бэкендом, вёрстку, добавление функциональности и&nbsp;финальные доработки.' />
@@ -14,6 +14,6 @@ function AboutProject() {
             <TimeLine />
         </section>
     );
-}
+});
 
 export default AboutProject;

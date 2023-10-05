@@ -31,3 +31,22 @@
     width: 100%;
     text-align: center;
 }
+
+@media screen and (max-width: 768px) {
+    .techs{
+        padding: 90px 50px;
+    }
+
+    .techs__container{
+        padding-top: 80px;
+    }
+
+    .techs__title{
+        padding-bottom: 22px;
+    }
+
+    .techs__text{
+        font-size: 12px;
+        line-height: 18px;
+    }
+}

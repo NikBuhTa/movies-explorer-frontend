@@ -1,0 +1,38 @@
+.page-notfound{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.page-notfound__title{
+    margin: 246px auto 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 140px;
+    font-weight: 400;
+    line-height: 169px;
+}
+
+.page-notfound__text{
+    margin: 5px auto 0;
+    padding: 0;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px; 
+}
+
+.page-notfound__link{
+    color: #FF6838;
+    margin: 184px auto 60px;
+    padding: 0;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    background-color: white;
+}

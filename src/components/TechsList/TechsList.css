@@ -5,4 +5,11 @@
     list-style: none;
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+    .techs__list{
+        padding-top: 83px;
+    }
 }

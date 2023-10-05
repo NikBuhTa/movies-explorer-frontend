@@ -5,6 +5,22 @@
     padding: 80px 0 30px;
     display: flex;
     list-style: none;
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 32px;
     flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1279px) {
+    .movies__list{
+        padding-top: 81px;
+        column-gap: calc((100vw - 270px*3 - 2*70px)/2);
+        row-gap: 36px;
+    }
+}
+
+@media screen and (max-width: 987px) {
+    .movies__list{
+        padding-top: 81px;
+        column-gap: calc((100vw - 339px*2 - 2*30px));
+    }
 }

@@ -1,8 +1,8 @@
 import React from "react";
 
-function SpanTemplate({ className, text }) {
+function SpanTemplate({ className, content }) {
     return(
-      <span className={ `${className} link-active` }>{ text }</span>
+      <span className={className}>{ content }</span>
     );
 }
 
