@@ -12,7 +12,7 @@
     margin: 0;
     padding: 0;
     color: black;
-    font-family: Inter;
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 24px;
     font-weight: 500;
     line-height: 29px;
@@ -49,7 +49,7 @@
 }
 
 .profile__label{
-    font-family: Inter;
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 11px;
     font-weight: 500;
     line-height: 13px;
@@ -57,7 +57,7 @@
 
 .profile__input{
     text-align: right;
-    font-family: Inter;
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 11px;
     font-weight: 400;
     line-height: 13px;
@@ -93,7 +93,7 @@
     width: 100%;
     margin-top: 20px;
     background-color: white;
-    font-family: Inter;
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 13px;
     font-weight: 400;
     line-height: 16px;
@@ -105,7 +105,7 @@
     margin-top: 16px;
     background-color: white;
     color: #EE3465;
-    font-family: Inter;
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 13px;
     font-weight: 500;
     line-height: 16px;
@@ -113,9 +113,54 @@
 
 .profile__error{
     min-height: 14px;
-    font-family: Inter;
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 11px;
     font-weight: 400;
     line-height: 13px;
     color: #FF004C;
+}
+
+@media screen and (max-width: 768px) {
+    .profile{
+        padding-top: 236px;
+    }
+
+    .profile__form{
+        padding-top: 96px;
+    }
+
+    .profile__control-container{
+        padding-top: 179px;
+    }
+}
+
+@media screen and (max-width: 456px) {
+    .profile{
+        padding: 70px 0 40px;
+    }
+
+    .profile__form{
+        padding-top: 80px;
+        max-width: 260px;
+    }
+
+    .profile__control-container{
+        padding-top: 379px;
+    }
+
+    .profile__button-edit{
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .profile__button-exit{
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .profile__button-save{
+        font-size: 12px;
+        line-height: 15px;
+        max-width: 260px;
+    }
 }

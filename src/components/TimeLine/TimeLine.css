@@ -4,7 +4,7 @@
     margin: 0;
     padding-top: 110px;
     display: flex;
-    font-family: Inter;
+    font-family: 'Inter', Arial, sans-serif;
     font-size: 14px;
 }
 
@@ -37,8 +37,27 @@
     line-height: 17px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 987px) {
     .about-project__timeline{
         padding-top: 93px;
+    }
+}
+
+@media screen and (max-width: 627px) {
+    .about-project__timeline{
+        padding-top: 60px;
+        font-size: 11px;
+    }
+
+    .about-project__timeline-done{
+        line-height: 14px;
+    }
+
+    .about-project__timeline-still{
+        line-height: 14px;
+    }
+
+    .about-project__timeline_capt{
+        line-height: 14px;
     }
 }

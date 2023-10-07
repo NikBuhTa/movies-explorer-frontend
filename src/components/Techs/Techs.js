@@ -9,7 +9,7 @@ const Techs = React.forwardRef((props, ref) => {
             <SectionTitle text='Технологии' />
             <div className="techs__container">
                 <h2 className="techs__title">
-                    <TitleTemplate text='7&nbsp;технологий'/>
+                    7&nbsp;технологий
                 </h2>
                 <p className="techs__text">На&nbsp;курсе веб-разработки мы&nbsp;освоили технологии, которые применили в&nbsp;дипломном проекте.</p>
                 <TechsList />

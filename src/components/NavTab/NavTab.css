@@ -10,10 +10,20 @@
 
 .menu__link{
     color: black;
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, sans-serif;
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
     cursor: pointer;
     border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 627px) {
+    .menu__link{
+        font-size: 11px;
+    }
+
+    .menu{
+        padding: 24px 0;
+    }
 }

@@ -7,7 +7,7 @@ import LinkTemplate from "../LinkTemplate/LinkTemplate";
 function HeaderNoAuth(){
     return(
         <Header children={
-            <Navigation styles='nav_noauth' children={
+            <Navigation styles='nav__noauth' children={
                 <>
                   <SpanTemplate className='nav__reg-link' content={
                     <LinkTemplate path='/signup' styles='link_color_white' linkText='Регистрация' />

@@ -1,8 +1,8 @@
 import React from "react";
 
-function SpanTemplate({ className, content }) {
+function SpanTemplate({ onClick = () => {}, className, content }) {
     return(
-      <span className={className}>{ content }</span>
+      <span onClick={onClick} className={className}>{ content }</span>
     );
 }
 

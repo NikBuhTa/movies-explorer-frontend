@@ -12,14 +12,41 @@
 }
 
 .promo__title{
+    box-sizing: border-box;
     margin: 0;
     position: absolute;
     max-width: 730px;
     text-align: center;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 58px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 987px) {
     .promo{
         padding: 224px 0 240px;
+    }
+}
+
+@media screen and (max-width: 627px) {
+    .promo{
+        padding: 142px 0 180px;
+    }
+
+    .promo__image{
+        width: 248px;
+        height: 248px;
+    }
+
+    .promo__title{
+        font-size: 31px;
+        line-height: 39px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .promo__title{
+        max-width: 300px;
     }
 }

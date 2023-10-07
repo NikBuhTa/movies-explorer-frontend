@@ -3,6 +3,7 @@ import HeaderAuthFilms from "../HeaderAuthFilms/HeaderAuthFilms";
 import WebPage from "../WebPage/WebPage";
 import ButtonTemplate from "../ButtonTemplate/ButtonTemplate";
 import SpanTemplate from "../SpanTemplate/SpanTemplate";
+import SideBar from "../SideBar/SideBar";
 
 function Profile() {
     const [isChange, setIsChange] = useState(false);
@@ -13,6 +14,7 @@ function Profile() {
     return(
         <WebPage content={
             <>
+                <SideBar />
                 <HeaderAuthFilms />
                 <section className="profile">
                     <h1 className="profile__title">Привет, Виталий!</h1>

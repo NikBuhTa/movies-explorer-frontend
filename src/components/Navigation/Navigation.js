@@ -1,6 +1,6 @@
 import React from "react";
 
-function Navigation({ children, styles }) {
+function Navigation({ children, styles = '' }) {
     return(
         <nav className={`${styles} nav`}>
             {children}

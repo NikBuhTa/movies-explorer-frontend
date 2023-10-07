@@ -5,12 +5,14 @@ import { savedFilms } from "../../utils/constants";
 import HeaderAuthFilms from "../HeaderAuthFilms/HeaderAuthFilms";
 import Footer from "../Footer/Footer";
 import WebPage from "../WebPage/WebPage";
+import SideBar from "../SideBar/SideBar";
 
 function SavedMovies({handleMoveToSavedMovies, isSavedMovies}){
-    useEffect(() => handleMoveToSavedMovies, []);
+
     return(
         <WebPage content={
             <>
+                <SideBar />
                 <HeaderAuthFilms isSavedMovies={isSavedMovies} />
                 <MoviesPage children={
                     <>

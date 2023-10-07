@@ -8,7 +8,7 @@ function Login() {
         <WebPage content={
             <>
                 <HeaderAuthForm title='Рады видеть!' />
-                <AuthForm path='/signup' buttonText='Войти' linkText='Регистрация' spanText='Еще не зарегистрированы?' isLogin={true}/>
+                <AuthForm buttonStyle='authform__login-button' path='/signup' buttonText='Войти' linkText='Регистрация' spanText='Еще не зарегистрированы?' isLogin={true}/>
             </>
         } />
     );

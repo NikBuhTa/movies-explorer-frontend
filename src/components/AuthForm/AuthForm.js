@@ -3,7 +3,7 @@ import ButtonTemplate from '../ButtonTemplate/ButtonTemplate'
 import SpanTemplate from "../SpanTemplate/SpanTemplate";
 import LinkTemplate from "../LinkTemplate/LinkTemplate";
 
-function AuthForm({path, buttonText, spanText, linkText, isLogin}) {
+function AuthForm({buttonStyle = '', path, buttonText, spanText, linkText, isLogin}) {
     return(
         <section className="authform">
         
@@ -21,7 +21,7 @@ function AuthForm({path, buttonText, spanText, linkText, isLogin}) {
                     <input className="form__input" type="password" required/>
                 <span className="form__error">Ошибка!</span>
             </form>
-            <ButtonTemplate styles='authform__button' text={buttonText}/>
+            <ButtonTemplate styles={`${buttonStyle} authform__button`} text={buttonText}/>
             <SpanTemplate className='authform__text' content={
                 <LinkTemplate path={path} spanText={spanText} linkText={linkText} styles='authform__link' />
             }/>

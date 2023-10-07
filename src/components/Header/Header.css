@@ -34,7 +34,7 @@
     align-items: center;
     text-decoration: none;
     color: black;
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -55,12 +55,14 @@
     background-color: white;
 }
 
-@media screen and (max-width: 768px) { 
+@media screen and (max-width: 987px) { 
     .header{
         padding: 0 30px;
     }
 }
 
-@media screen and (max-width: 320px) {
-    
+@media screen and (max-width: 627px) {
+    .header{
+        padding: 0 14px;
+    }
 }

@@ -8,8 +8,14 @@
     flex-wrap: wrap;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 987px) {
     .techs__list{
         padding-top: 83px;
+    }
+}
+
+@media screen and (max-width: 627px) {
+    .techs__list{
+        padding: 50px 52px 0;
     }
 }
