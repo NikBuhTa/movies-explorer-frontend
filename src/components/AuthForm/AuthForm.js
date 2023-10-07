@@ -21,7 +21,7 @@ function AuthForm({buttonStyle = '', path, buttonText, spanText, linkText, isLog
                     <input className="form__input" type="password" required/>
                 <span className="form__error">Ошибка!</span>
             </form>
-            <ButtonTemplate styles={`${buttonStyle} authform__button`} text={buttonText}/>
+            <ButtonTemplate type='submit' styles={`${buttonStyle} authform__button`} text={buttonText}/>
             <SpanTemplate className='authform__text' content={
                 <LinkTemplate path={path} spanText={spanText} linkText={linkText} styles='authform__link' />
             }/>

@@ -31,12 +31,12 @@ function Profile() {
                     {isChange ? 
                     <div className="profile__control-container">
                         <SpanTemplate className='profile__error' content='ERROR' />
-                        <ButtonTemplate styles='profile__button-save' text='Сохранить' />
+                        <ButtonTemplate type='submit' styles='profile__button-save' text='Сохранить' />
                     </div> :
                         <div className="profile__control-container">
                             <SpanTemplate className='profile__error' content='' />
                             <ButtonTemplate onClick={handleClick} styles='profile__button-edit' text='Редактировать' />
-                            <ButtonTemplate styles='profile__button-exit' text='Выйти из&nbsp;аккаунта' />
+                            <ButtonTemplate type='submit' styles='profile__button-exit' text='Выйти из&nbsp;аккаунта' />
                         </div>}
                 </section>
             </>
