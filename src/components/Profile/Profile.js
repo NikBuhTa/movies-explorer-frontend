@@ -4,12 +4,18 @@ import WebPage from "../WebPage/WebPage";
 import ButtonTemplate from "../ButtonTemplate/ButtonTemplate";
 import SpanTemplate from "../SpanTemplate/SpanTemplate";
 import SideBar from "../SideBar/SideBar";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
     const [isChange, setIsChange] = useState(false);
-    const handleClick = () => {
-        console.log(1)
+    
+    const navigate = useNavigate();
+    
+    const handleBtnEditClick = () => {
         setIsChange(true);
+    }
+    const handleBtnExitClick = () => {
+        navigate('/', {replace: true});
     }
     return(
         <WebPage content={
@@ -21,11 +27,11 @@ function Profile() {
                     <form className="profile__form">
                         <div className="profile__container">
                             <label className="profile__label">Имя</label>
-                            <input id="name" className="profile__input" type="text" value='NAME' required/>
+                            <input id="name" className="profile__input" type="text" value='NAME' required placeholder="Имя" minLength={2} maxLength={30}/>
                         </div>
                         <div className="profile__container">
                             <label className="profile__label">E-mail</label>
-                            <input id="email" className="profile__input" type="email" value='EMAIL' required/>
+                            <input id="email" className="profile__input" type="email" value='EMAIL' required placeholder="E-mail" minLength={2} maxLength={30}/>
                         </div>
                     </form>
                     {isChange ? 
@@ -35,8 +41,8 @@ function Profile() {
                     </div> :
                         <div className="profile__control-container">
                             <SpanTemplate className='profile__error' content='' />
-                            <ButtonTemplate onClick={handleClick} styles='profile__button-edit' text='Редактировать' />
-                            <ButtonTemplate type='submit' styles='profile__button-exit' text='Выйти из&nbsp;аккаунта' />
+                            <ButtonTemplate type="button" onClick={handleBtnEditClick} styles='profile__button-edit' text='Редактировать' />
+                            <ButtonTemplate type='button' onClick={handleBtnExitClick} styles='profile__button-exit' text='Выйти из&nbsp;аккаунта' />
                         </div>}
                 </section>
             </>

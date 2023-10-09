@@ -8,11 +8,13 @@ function PageNotFound(){
         history(-1);
     }
     return(
-        <section className="page-notfound">
-            <h2 className="page-notfound__title">404</h2>
-            <p className="page-notfound__text">Страница не&nbsp;найдена</p>
-            <ButtonTemplate onClick={handleClick} styles='page-notfound__link' text='Назад'/>
-        </section>
+        <main className="main">
+            <section className="page-notfound">
+                <h1 className="page-notfound__title">404</h1>
+                <p className="page-notfound__text">Страница не&nbsp;найдена</p>
+                <ButtonTemplate onClick={handleClick} styles='page-notfound__link' text='Назад'/>
+            </section>
+        </main>
     );
 };
 

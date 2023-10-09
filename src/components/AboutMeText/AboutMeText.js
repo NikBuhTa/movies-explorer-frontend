@@ -10,7 +10,7 @@ function AboutMeText(){
             <p className="aboutme__paragraph">Я&nbsp;родился и&nbsp;живу в&nbsp;Саратове, закончил факультет экономики СГУ. У&nbsp;меня есть жена 
 и&nbsp;дочь. Я&nbsp;люблю слушать музыку, а&nbsp;ещё увлекаюсь бегом. Недавно начал кодить. С&nbsp;2015 года работал в&nbsp;компании 
 &laquo;СКБ Контур&raquo;. После того, как прошёл курс по&nbsp;веб-разработке, начал заниматься фриланс-заказами и&nbsp;ушёл с&nbsp;постоянной работы.</p>
-            <SpanTemplate className='aboutme__link' content='Github' />
+            <a href="https://github.com/NikBuhTa" className='aboutme__link link-active' target="_blank" >Github</a>
         </div>
     );
 };

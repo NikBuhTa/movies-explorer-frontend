@@ -1,9 +1,8 @@
 import React  from "react";
-import SpanTemplate from "../SpanTemplate/SpanTemplate";
 
-function AnchorTemplate({ className, text, anchor, onClick }){
+function AnchorTemplate({ className, text, anchor }){
     return(
-        <span onClick={onClick} className="anchor"><SpanTemplate className={className} content={text}/></span>
+        <li className="menu__item"><a href={anchor} className={className} >{text}</a></li>
     );
 };
 

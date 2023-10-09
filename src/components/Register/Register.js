@@ -8,7 +8,9 @@ function Register() {
         <WebPage content={
             <>
                 <HeaderAuthForm title='Добро пожаловать!'/>
-                <AuthForm path='/signin' buttonText='Зарегистрироваться' spanText='Уже зарегистрированы?' linkText='Войти'/>
+                <main className="main">
+                    <AuthForm path='/signin' buttonText='Зарегистрироваться' spanText='Уже зарегистрированы?' linkText='Войти'/>
+                </main>
             </>
         }/>
     );

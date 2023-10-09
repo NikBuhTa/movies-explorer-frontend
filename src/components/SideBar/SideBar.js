@@ -17,41 +17,43 @@ function SideBar() {
 
     return(
         <div className={`${isSideBar ? 'sidebar__active' : ''} sidebar`}>
-            <ButtonTemplate onClick={onClose} styles='sidebar__close-button' text={
-                <img src={path} className="sidebar__button-img" alt="close-icon"/>
-            } />
-            <Navigation styles="nav_position_sidebar" children={
-                  <>
-                    <SpanTemplate onClick={() => {
-                      handleLeaveMovies();
-                      handleLeaveSavedMovies();
-                      handleMoveToMain();
-                    }} className={`${ isMain ? 'nav__link-active' : ''} link-active nav__saved-films-link nav__films-link_position_sidebar`} content={
-                      <LinkTemplate path='/' styles='link_color_black' linkText='Главная' />
-                    } />
-                    <SpanTemplate onClick={() => {
-                      handleMoveToMovies();
-                      handleLeaveSavedMovies();
-                      handleLeaveMain();
-                    }} className={`${ isMovies ? 'nav__link-active' : ''} link-active nav__films-link nav__films-link_position_sidebar`} content={
-                      <LinkTemplate path='/movies' styles='link_color_black' linkText='Фильмы'/>
-                    } />
-                    <SpanTemplate onClick={() => {
-                      handleMoveToSavedMovies();
-                      handleLeaveMovies();
-                      handleLeaveMain();
-                    }} className={`${ isSavedMovies ? 'nav__link-active' : ''} link-active nav__saved-films-link nav__films-link_position_sidebar`} content={
-                      <LinkTemplate path='/saved-movies' styles='link_color_black' linkText='Сохраненные фильмы' />
-                    } />
-                  </>
-                }/>
-                <SpanTemplate onClick={() => {
-                  handleLeaveMain();
-                  handleLeaveMovies();
-                  handleLeaveSavedMovies();
-                }} className='header__account-link-films header__account-link' content={
-                  <LinkTemplate path='/profile' styles='link_color_black' linkText='Аккаунт' />
-                }/>
+            <div className="sidebar__container">
+              <ButtonTemplate onClick={onClose} styles='sidebar__close-button' text={
+                  <img src={path} className="sidebar__button-img" alt="close-icon"/>
+              } />
+              <Navigation styles="nav_position_sidebar" children={
+                    <>
+                      <SpanTemplate onClick={() => {
+                        handleLeaveMovies();
+                        handleLeaveSavedMovies();
+                        handleMoveToMain();
+                      }} className={`${ isMain ? 'nav__link-active' : ''} link-active nav__saved-films-link nav__films-link_position_sidebar`} content={
+                        <LinkTemplate path='/' styles='link_color_black' linkText='Главная' />
+                      } />
+                      <SpanTemplate onClick={() => {
+                        handleMoveToMovies();
+                        handleLeaveSavedMovies();
+                        handleLeaveMain();
+                      }} className={`${ isMovies ? 'nav__link-active' : ''} link-active nav__films-link nav__films-link_position_sidebar`} content={
+                        <LinkTemplate path='/movies' styles='link_color_black' linkText='Фильмы'/>
+                      } />
+                      <SpanTemplate onClick={() => {
+                        handleMoveToSavedMovies();
+                        handleLeaveMovies();
+                        handleLeaveMain();
+                      }} className={`${ isSavedMovies ? 'nav__link-active' : ''} link-active nav__saved-films-link nav__films-link_position_sidebar`} content={
+                        <LinkTemplate path='/saved-movies' styles='link_color_black' linkText='Сохраненные фильмы' />
+                      } />
+                    </>
+                  }/>
+                  <SpanTemplate onClick={() => {
+                    handleLeaveMain();
+                    handleLeaveMovies();
+                    handleLeaveSavedMovies();
+                  }} className='header__account-link-films header__account-link' content={
+                    <LinkTemplate path='/profile' styles='link_color_black' linkText='Аккаунт' />
+                  }/>
+            </div>
         </div>
     )
 };

@@ -10,10 +10,10 @@ function Footer(){
                 </p>
                 <ul className="footer__links">
                     <li className="footer__link">
-                        Яндекс.Практикум
+                        <a href='https://practicum.yandex.ru/' className="footer__internal-link link-active" target="_blank">Яндекс.Практикум</a>
                     </li>
                     <li className="footer__link">
-                        Github 
+                        <a href='https://github.com/' className="footer__internal-link link-active" target="_blank" >Github</a> 
                     </li>
                 </ul>
             </div>

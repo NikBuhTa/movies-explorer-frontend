@@ -1,16 +1,16 @@
-.anchor{
+.menu__item{
     margin: 0;
     padding: 0;
     text-decoration: none;
     margin-right: 40px;
 }
 
-.anchor:last-of-type{
+.menu__item:last-of-type{
     margin-right: 0;
 }
 
 @media screen and (max-width: 627px) {
-    .anchor{
+    .menu__item{
         margin-right: 24px;
     }
 }

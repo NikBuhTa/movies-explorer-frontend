@@ -108,9 +108,16 @@
     margin-top: 160px;
 }
 
+@media screen and (max-width: 950px) {
+    .authform{
+        padding-bottom: 232px;
+    }
+}
+
 @media screen and (max-width: 456px) {
     .authform{
         max-width: 260px;
+        padding-bottom: 30px;
     }
 
     .authform__button{

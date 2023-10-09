@@ -8,11 +8,11 @@ function Header({children, specClass}) {
 
     return(
         <header className={ specClass ? `${ specClass } header` : 'header' }>
-            <LinkTemplate path='/' linkText={<img onClick={() =>{
+            <LinkTemplate path='/' styles='header__logo' linkText={<img onClick={() =>{
                 handleLeaveMovies();
                 handleLeaveSavedMovies();
                 handleMoveToMain();
-            }} src={ logo } className='header__logo' alt="лого приложения"/>} />
+            }} src={ logo } alt="лого приложения"/>} />
             {children}
         </header>
     );

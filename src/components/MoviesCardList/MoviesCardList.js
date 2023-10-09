@@ -2,11 +2,11 @@ import React from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import SpanTemplate from '../SpanTemplate/SpanTemplate';
 
-function MoviesCardList({films, type}){
+function MoviesCardList({styles = '', films, type}){
     return(
         <>
             {films ? 
-            <ul className="movies-list">
+            <ul className={`movies-list ${styles}`}>
                 { films.map((film) => 
                     (<MoviesCard type={type} key={film.id} duration={film.duration} nameRU={film.nameRU} image={film.image} />)
                 ) }

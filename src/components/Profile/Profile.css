@@ -65,7 +65,7 @@
 }
 
 .profile__input:focus{
-    outline: none;
+    outline-color:#A0A0A0;
 }
 
 .profile__control-container{

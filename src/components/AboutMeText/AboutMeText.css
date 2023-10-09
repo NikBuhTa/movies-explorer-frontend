@@ -45,6 +45,8 @@
     cursor: pointer;
     max-width: 46px;
     width: 100%;
+    text-decoration: none;
+    color: black;
 }
 
 @media screen and (max-width: 1045px) {

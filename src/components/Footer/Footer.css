@@ -55,6 +55,11 @@
     line-height: 16px;
 }
 
+.footer__internal-link{
+    text-decoration: none;
+    color: black;
+}
+
 @media screen and (max-width: 995px) {
     .footer{
         background-color: white;

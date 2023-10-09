@@ -11,8 +11,20 @@
     max-width: 228px;
 }
 
+@media screen and (max-width: 990px) {
+    .about-project__timeline-item-done{
+        max-width: 140px;
+    }
+}
+
 @media screen and (max-width: 627px) {
     .about-project__timeline-item{
         gap: 10px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .about-project__timeline-item-done{
+        max-width: 100px;
     }
 }

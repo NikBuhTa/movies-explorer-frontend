@@ -3,10 +3,10 @@ import ButtonTemplate from "../ButtonTemplate/ButtonTemplate";
 
 function MoviesCard({ duration, nameRU, image, type = false }){
     return(
-        <div className="movies__card">
+        <li className="movies__card">
             <img src={image} className="movies__card-image" alt={ nameRU } />
             <div className="movies__card-container">
-                <h4 className="movies__card-title">{ nameRU }</h4>
+                <h2 className="movies__card-title">{ nameRU }</h2>
                 {type ? 
                 <ButtonTemplate styles='movies__card-delete' /> :
                 <label className="movies__card-label">
@@ -15,7 +15,7 @@ function MoviesCard({ duration, nameRU, image, type = false }){
                 </label>}
             </div>
             <p className="movies__card-dur">{ duration }</p>
-        </div>
+        </li>
     );
 };
 

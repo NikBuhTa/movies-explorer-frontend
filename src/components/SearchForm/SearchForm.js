@@ -3,11 +3,13 @@ import path from '../../images/search.svg'
 
 function SearchForm(){
     return(
-        <div className="search">
-            <label className="search__input">
-                <input className="search__input-item" type="text" required placeholder="Фильм" /> {/*animation*/}
+        <form className="search">
+            <div className="search__container">
+                <label className="search__input">
+                    <input className="search__input-item" type="text" required placeholder="Фильм" />
+                </label>
                 <button className="search__button"><img src={ path } alt='search'/></button>
-            </label>
+            </div>
             <div className="search__choice">
                 <label className="search__thumb-label">
                     <input className="search__thumb" type="checkbox" />
@@ -15,7 +17,7 @@ function SearchForm(){
                 </label>
                 <p className="search__short-text">Короткометражки</p>
             </div>
-        </div>
+        </form>
     );
 };
 

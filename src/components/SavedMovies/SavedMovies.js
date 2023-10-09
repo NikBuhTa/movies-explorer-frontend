@@ -12,13 +12,15 @@ function SavedMovies({handleMoveToSavedMovies, isSavedMovies}){
     return(
         <WebPage content={
             <>
-                <SideBar />
                 <HeaderAuthFilms isSavedMovies={isSavedMovies} />
-                <MoviesPage children={
-                    <>
-                        <MoviesCardList films={savedFilms} type={true}/>
-                    </>
-                }/>
+                <main className="main">
+                    <SideBar />
+                    <MoviesPage children={
+                        <>
+                            <MoviesCardList films={savedFilms} type={true} styles="movies-list_position_savedmovies"/>
+                        </>
+                    }/>
+                </main>
                 <Footer />
             </>
         } />

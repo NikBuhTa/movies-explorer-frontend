@@ -13,14 +13,16 @@ function Movies({handleMoveToMovies, isMovies}){
     return(
         <WebPage content={
             <>
-                <SideBar />
                 <HeaderAuthFilms isMovies={isMovies}/>
-                <MoviesPage children={
-                    <>
-                        <MoviesCardList films={films} type={false}/>
-                        <ButtonTemplate styles='movies__button' text='Ещё' />
-                    </>
-                }/>
+                <main className="main">
+                    <SideBar />
+                    <MoviesPage children={
+                        <>
+                            <MoviesCardList films={films} type={false}/>
+                            <ButtonTemplate styles='movies__button' text='Ещё' />
+                        </>
+                    }/>
+                </main>
                 <Footer />
             </>
         }/>

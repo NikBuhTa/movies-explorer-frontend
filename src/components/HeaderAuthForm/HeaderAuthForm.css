@@ -1,23 +1,17 @@
 .authheader {
     box-sizing: border-box;
+    max-width: 396px;
     margin: 0;
     padding: 70px 0 40px;
     width: 100%;
     background-color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.authheader__container{
-    max-width: 396px;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+    align-items: start;
+    gap: 40px;
 }
 
 .authheader__image{
-    margin-bottom: 40px;
     cursor: pointer;
 }
 
@@ -44,15 +38,9 @@
 @media screen and (max-width: 456px) {
     .authheader{
         padding: 56px 0 80px;
-    }
-
-    .authheader__container{
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
-
-    .authheader__image{
-        margin-bottom: 50px;
+        gap: 50px;
     }
 }

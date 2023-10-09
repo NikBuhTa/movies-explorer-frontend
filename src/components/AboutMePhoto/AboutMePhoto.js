@@ -1,9 +1,9 @@
 import React from "react";
-import path from '../../images/aboutme__photo.svg'
+import path from '../../images/aboutme.png'
 
 function AboutMePhoto() {
     return(
-        <img src={ path } className="aboutme__photo" alt="Nikita" />
+        <img src={ path } className="aboutme__photo" alt="Студент" />
     );
 };
 

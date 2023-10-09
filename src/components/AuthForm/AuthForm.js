@@ -11,14 +11,14 @@ function AuthForm({buttonStyle = '', path, buttonText, spanText, linkText, isLog
                 {isLogin ? '' : 
                 <>
                     <label className="form__label">Имя</label>
-                        <input className="form__input" type="text" required/>
+                        <input className="form__input" type="text" required placeholder="Имя" minLength={2} maxLength={30}/>
                     <span className="form__error"></span>
                 </>}
                 <label className="form__label">E-mail</label>
-                    <input className="form__input" type="email" required/>
+                    <input className="form__input" type="email" required placeholder="E-mail" minLength={2} maxLength={30}/>
                 <span className="form__error"></span>
                 <label className="form__label">Пароль</label>
-                    <input className="form__input" type="password" required/>
+                    <input className="form__input" type="password" required placeholder="Пароль" minLength={2} maxLength={30}/>
                 <span className="form__error">Ошибка!</span>
             </form>
             <ButtonTemplate type='submit' styles={`${buttonStyle} authform__button`} text={buttonText}/>

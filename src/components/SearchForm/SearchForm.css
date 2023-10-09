@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-.search__input{
+.search__container{
     box-sizing: border-box;
     width: 100%;
     position: relative;
