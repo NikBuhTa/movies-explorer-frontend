@@ -8,8 +8,8 @@ function MoviesCard({ duration, nameRU, image, type = false }){
             <div className="movies__card-container">
                 <h2 className="movies__card-title">{ nameRU }</h2>
                 {type ? 
-                <ButtonTemplate styles='movies__card-delete' /> :
-                <label className="movies__card-label">
+                <ButtonTemplate type="button" styles='movies__card-delete link-active' /> :
+                <label className="movies__card-label link-active">
                     <input className="movies__card-thumb" type="checkbox" />
                     <span className="movies__card-thumb-icon"></span>
                 </label>}

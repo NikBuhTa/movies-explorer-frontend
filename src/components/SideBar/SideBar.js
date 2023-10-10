@@ -18,8 +18,8 @@ function SideBar() {
     return(
         <div className={`${isSideBar ? 'sidebar__active' : ''} sidebar`}>
             <div className="sidebar__container">
-              <ButtonTemplate onClick={onClose} styles='sidebar__close-button' text={
-                  <img src={path} className="sidebar__button-img" alt="close-icon"/>
+              <ButtonTemplate type="button" onClick={onClose} styles='sidebar__close-button' text={
+                  <img src={path} className="sidebar__button-img" alt="иконка закрытия"/>
               } />
               <Navigation styles="nav_position_sidebar" children={
                     <>

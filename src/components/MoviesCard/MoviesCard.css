@@ -9,7 +9,6 @@
     flex-direction: column;
     color: black;
     box-shadow: 0px 16px 24px 0px #0000000D;
-
 }
 
 .movies__card-delete{
@@ -20,6 +19,7 @@
 }
 
 .movies__card-image{
+    box-sizing: border-box;
     height: 151px;
     width: 100%;
     object-fit: cover;

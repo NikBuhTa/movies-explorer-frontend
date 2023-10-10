@@ -4,7 +4,7 @@
     padding: 80px 0 30px;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 270px);
+    grid-template-columns: repeat(auto-fill, 270px);
     grid-template-rows: repeat(auto-fill, 218px);
     column-gap: 20px;
     row-gap: 32px;
@@ -38,6 +38,8 @@
 @media screen and (max-width: 997px) {
     .movies-list{
         padding-top: 81px;
+        grid-template-columns: repeat(auto-fill, 339px);
+        grid-template-rows: repeat(auto-fill, 257px);
     }
 }
 
@@ -46,5 +48,7 @@
         padding-top: 50px;
         gap: 30px;
         row-gap: 20px;
+        grid-template-columns: repeat(auto-fill, 300px);
+        grid-template-rows: repeat(auto-fill, 235px);
     }
 }

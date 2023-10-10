@@ -8,10 +8,10 @@ function SearchForm(){
                 <label className="search__input">
                     <input className="search__input-item" type="text" required placeholder="Фильм" />
                 </label>
-                <button className="search__button"><img src={ path } alt='search'/></button>
+                <button type="button" className="search__button link-active"><img src={ path } alt='кнопка поиска'/></button>
             </div>
             <div className="search__choice">
-                <label className="search__thumb-label">
+                <label className="search__thumb-label link-active">
                     <input className="search__thumb" type="checkbox" />
                     <span className="search__thumb-icon"></span>
                 </label>

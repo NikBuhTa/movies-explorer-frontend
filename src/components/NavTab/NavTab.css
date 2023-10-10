@@ -9,6 +9,17 @@
     list-style: none;
 }
 
+.menu__list{
+    box-sizing: border-box;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+}
+
 .menu__link{
     color: black;
     font-family: 'Inter', Arial, sans-serif;
@@ -22,9 +33,5 @@
 @media screen and (max-width: 627px) {
     .menu__link{
         font-size: 11px;
-    }
-
-    .menu{
-        padding: 24px 0;
     }
 }

@@ -9,20 +9,26 @@
 }
 
 .aboutme__portfolio-link{
+    box-sizing: border-box;
+    width: 100%;
     font-family: 'Inter', Arial, sans-serif;
     font-size: 30px;
     font-weight: 400;
     line-height: 50px;
     cursor: pointer;
     color: black;
+    display: flex;
+    justify-content: space-between;
 }
 
 .aboutme__portfolio-link-text{
+    text-align: center;
     width: 29px;
     font-family: 'Inter', Arial, sans-serif;
     font-size: 30px;
     font-weight: 400;
     line-height: 60px;
+    color: black;
 }
 
 .aboutme__portfolio-item:last-of-type{
