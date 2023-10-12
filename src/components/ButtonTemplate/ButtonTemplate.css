@@ -11,3 +11,12 @@
 .button:hover{
     opacity: .8;
 }
+
+.button_unactive{
+    cursor: default;
+    opacity: .5;
+}
+
+.button_unactive:hover{
+    opacity: .5;
+}

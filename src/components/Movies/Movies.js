@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import ButtonTemplate from "../ButtonTemplate/ButtonTemplate";
 import {films} from '../../utils/constants.js';
@@ -7,9 +7,9 @@ import WebPage from "../WebPage/WebPage";
 import Footer from "../Footer/Footer";
 import HeaderAuthFilms from "../HeaderAuthFilms/HeaderAuthFilms";
 import SideBar from "../SideBar/SideBar";
+import { useLocation } from "react-router-dom";
 
 function Movies({handleMoveToMovies, isMovies}){
-
     return(
         <WebPage content={
             <>

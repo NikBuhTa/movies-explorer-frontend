@@ -5,12 +5,11 @@ import SpanTemplate from "../SpanTemplate/SpanTemplate";
 import LinkTemplate from "../LinkTemplate/LinkTemplate";
 import { MobileSizeContext } from "../../contexts/MobileSizeContext";
 import SideBarIcon from "../SideBarIcon/SideBarIcon";
-import { NavParamsContext } from "../../contexts/NavParamsContext";
+import { useLocation } from "react-router-dom";
 
 function HeaderAuthFilms(){
   const isMobileSize = useContext(MobileSizeContext);
-  const {isMain, isMovies, isSavedMovies, handleLeaveMovies, handleLeaveSavedMovies, handleMoveToMovies, handleMoveToSavedMovies, handleLeaveMain, handleMoveToMain} = useContext(NavParamsContext);
-
+  const location = useLocation();
   return(
     <Header children={
         <>
@@ -19,27 +18,15 @@ function HeaderAuthFilms(){
           <>
             <Navigation styles='nav_position_header' children={
               <>
-                <SpanTemplate onClick={() => {
-                  handleMoveToMovies();
-                  handleLeaveSavedMovies();
-                  handleLeaveMain();
-                }} className={`${ isMovies ? 'nav__link-active' : ''} link-active nav__films-link`} content={
+                <SpanTemplate className={`${ location.pathname === '/movies' ? 'nav__link-active' : ''} link-active nav__films-link`} content={
                   <LinkTemplate path='/movies' styles='link_color_black' linkText='Фильмы'/>
                 } />
-                <SpanTemplate onClick={() => {
-                  handleMoveToSavedMovies();
-                  handleLeaveMovies();
-                  handleLeaveMain();
-                }} className={`${isSavedMovies ? 'nav__link-active' : ''} nav__saved-films-link`} content={
+                <SpanTemplate className={`${ location.pathname === '/saved-movies' ? 'nav__link-active' : ''} nav__saved-films-link`} content={
                   <LinkTemplate path='/saved-movies' styles='link_color_black' linkText='Сохраненные фильмы' />
                 } />
               </>
             }/>
-            <SpanTemplate onClick={() => {
-                  handleLeaveMain();
-                  handleLeaveMovies();
-                  handleLeaveSavedMovies();
-                }} className='header__account-link-films header__account-link' content={
+            <SpanTemplate className='header__account-link-films header__account-link' content={
               <LinkTemplate path='/profile' styles='link_color_black' linkText='Аккаунт' />
             }/>
           </>}
