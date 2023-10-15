@@ -4,7 +4,7 @@ import SpanTemplate from "../SpanTemplate/SpanTemplate";
 import LinkTemplate from "../LinkTemplate/LinkTemplate";
 
 
-function AuthForm({buttonStyle = '', path, buttonText, spanText, linkText, isLogin, onSubmit, onChange, userData, vldProps}) {
+function AuthForm({buttonStyle = '', path, buttonText, spanText, linkText, isLogin, onSubmit, onChange, userData, vldProps, error}) {
     return(
         <section className="authform">
         
@@ -21,6 +21,7 @@ function AuthForm({buttonStyle = '', path, buttonText, spanText, linkText, isLog
                 <label className="form__label">Пароль</label>
                     <input className="form__input" name="password" type="password" onChange={onChange} value={userData?.password} required placeholder="Пароль" minLength={2} maxLength={30}/>
                 <span className="form__error">{!vldProps.isValid && vldProps.errors.password}</span>
+                <span className="form__error form__error_position_onbutton">{'' ? 'Пользователь с таким email уже существует' : ''}</span>
                 <ButtonTemplate isDisabled={!vldProps.isValid} type='submit' styles={`${buttonStyle} authform__button`} text={buttonText}/>
             </form>
             <SpanTemplate className='authform__text' content={

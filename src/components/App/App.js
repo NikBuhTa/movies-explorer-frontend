@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
 import Movies from '../Movies/Movies.js';
@@ -18,55 +18,43 @@ import { SideBarContext } from '../../contexts/SideBarContext.js';
 import mainApi from '../../utils/MainApi.js';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
+import moviesApi from '../../utils/MoviesApi.js'
+import { filmsFilter } from '../../utils/filmsFilter.js';
+import setDuration from '../../utils/setDuration.js';
+import filmsRender from '../../utils/filmsRender.js';
+import addFilmsRender from '../../utils/addFilmsRender.js';
 
 function App() {
-  
+  const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
-  const [isMovies, setIsMovies] = useState(false);
-  const [isSavedMovies, setIsSavedMovies] = useState(false);
-  const [isMobileSize, setIsMobileSize] = useState(false);
+  const [isTabSize, setIsTabSize] = useState(false);
+  const [isMobSize, setIsMobSize] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
-  const [isMain, setIsMain] = useState(false)
   const [currentUser, setCurrentUser] = useState({});
   const [err, setErr] = useState({});
+  const [films, setFilms] = useState([])
 
   const toggleSideBar = () => {
     setIsSideBar(!isSideBar);
   }
 
-  const handleMoveToMovies = () => {
-    setIsMovies(true);
-  }
-
-  const handleMoveToSavedMovies = () => {
-    setIsSavedMovies(true);
-  }
-  const handleLeaveMovies = () => {
-    setIsMovies(false);
-  }
-
-  const handleLeaveSavedMovies = () => {
-    setIsSavedMovies(false);
-  }
-
-  const handleMoveToMain = () => {
-    setIsMain(true);
-  }
-
-  const handleLeaveMain = () => {
-    setIsMain(false);
+  const handleSetFilms = (films) => {
+    setFilms(films);
   }
 
   const handleRegSubmit = (info) => {
-    mainApi.register(info);
-    mainApi.login(info);
-    setLoggedIn(true);
+    mainApi.register(info)
+      .then(res => {
+        handleLogin(info);
+      })
+      .catch(err => console.log(err));
   }
 
   const handleLogin = (info) => {
-    mainApi.login(info)
+    return mainApi.login(info)
       .then(res => {
         setLoggedIn(true);
+        navigate('/movies', {replace: true})
         handleLoadProfile()
           .catch(err => {
             setErr({status: err.status, text: err.statusText});
@@ -101,12 +89,37 @@ function App() {
       })
   }
 
+  const handleSearchBtnSubmit = (keyWord, short) => {
+    moviesApi.getFilms().then(res => {
+      const filteredFilms = filmsFilter(res, keyWord, short);
+      filteredFilms.forEach(film => {
+        film.duration = setDuration(film.duration);
+      })
+      localStorage.setItem('data', JSON.stringify({films: filteredFilms, keyWord, short}));
+      setFilms(filmsRender(filteredFilms, isMobSize, isTabSize));
+    })
+  }
+
+  const handleAddBtn = (data, isMobSize, isTabSize) => {
+    console.log(addFilmsRender(data, isMobSize, isTabSize))
+        setFilms([...films,...addFilmsRender(data, isMobSize, isTabSize)])
+  }
+
+  const handleResizeFunc = () => {
+    setIsTabSize(window.innerWidth < 880);
+    setIsMobSize(window.innerWidth < 450);
+  }
+
   useEffect(() => {
-    window.addEventListener('resize', (e) => {
-      setIsMobileSize(window.innerWidth < 880)
+      setFilms(filmsRender(JSON.parse(localStorage.getItem('data')).films, isMobSize, isTabSize));
+  }, [isMobSize, isTabSize])
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setTimeout(handleResizeFunc, 30)
     });
-    setIsMobileSize(window.innerWidth < 880);
-    setIsMain(true);
+    setIsTabSize(window.innerWidth < 880);
+    setIsMobSize(window.innerWidth < 450);
     handleLoadProfile()
       .then(res => setLoggedIn(true))
       .catch(err => {
@@ -114,9 +127,8 @@ function App() {
       })
   }, [])
 
-//HeaderAuthFilms
   return (
-    <MobileSizeContext.Provider value={isMobileSize}>
+    <MobileSizeContext.Provider value={{isTabSize, isMobSize}}>
     <SideBarContext.Provider value={{isSideBar, toggleSideBar}}>
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>
@@ -138,7 +150,7 @@ function App() {
             </> }
         </>
         }/> } />
-        <Route path='/movies' element={<ProtectedRoute element={ Movies } loggedIn={loggedIn}/>} />
+        <Route path='/movies' element={<ProtectedRoute element={ Movies } onAddBtnClick={() => handleAddBtn(films, isMobSize, isTabSize)} setFilms={(films) => handleSetFilms(films)} loggedIn={loggedIn} films={films} onSubmit={(keyWord, short) => handleSearchBtnSubmit(keyWord, short)}/>} />
         <Route path='/saved-movies' element={<ProtectedRoute element={ SavedMovies } loggedIn={loggedIn}/>} /> 
         <Route path='/profile' element={<ProtectedRoute element={ Profile } err={err} onUpdate={handleUpdProfile} onLogout={handleLogout} loggedIn={loggedIn}/>} />
         <Route path='*' element={ <WebPage content={

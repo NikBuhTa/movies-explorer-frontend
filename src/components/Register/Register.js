@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 function Register({onRegister,}) {
     const { values, handleChange, errors, isValid, resetForm, setValues } = useFormAndValidation({ email: '', password: '', name: '' });
-    const navigate = useNavigate();
 
     useEffect(() => {
         resetForm();
@@ -19,7 +18,6 @@ function Register({onRegister,}) {
     const handleReg = (e) => {
         e.preventDefault();
         onRegister(values);
-        navigate('/movies', {replace: true})
     }
 
     return(

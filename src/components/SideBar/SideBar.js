@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Navigation from "../Navigation/Navigation";
 import SpanTemplate from "../SpanTemplate/SpanTemplate";
 import LinkTemplate from "../LinkTemplate/LinkTemplate";
@@ -13,7 +13,7 @@ function SideBar() {
     const onClose = () => {
         toggleSideBar();
     }
-
+    
     return(
         <div className={`${isSideBar ? 'sidebar__active' : ''} sidebar`}>
             <div className="sidebar__container">

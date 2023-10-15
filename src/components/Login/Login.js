@@ -3,11 +3,9 @@ import WebPage from "../WebPage/WebPage";
 import HeaderAuthForm from "../HeaderAuthForm/HeaderAuthForm";
 import AuthForm from "../AuthForm/AuthForm";
 import { useFormAndValidation } from "../../hooks/useFormAndValidation";
-import { useNavigate } from "react-router-dom";
 
 function Login({onLogin}) {
     const { values, handleChange, errors, isValid, resetForm, setValues } = useFormAndValidation({ email: '', password: ''});
-    const navigate = useNavigate();
 
     useEffect(() => {
         resetForm();
@@ -19,7 +17,6 @@ function Login({onLogin}) {
     const handleLogin = (e) => {
         e.preventDefault();
         onLogin(values);
-        navigate('/movies', {replace: true})
     }
 
     return(

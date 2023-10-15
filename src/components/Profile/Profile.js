@@ -4,7 +4,6 @@ import WebPage from "../WebPage/WebPage";
 import ButtonTemplate from "../ButtonTemplate/ButtonTemplate";
 import SpanTemplate from "../SpanTemplate/SpanTemplate";
 import SideBar from "../SideBar/SideBar";
-import { useNavigate } from "react-router-dom";
 import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
@@ -12,7 +11,6 @@ function Profile({onLogout, onUpdate, err}) {
     const currentUser = useContext(CurrentUserContext);
 
     const { values, handleChange, errors, isValid, resetForm, setValues, setIsValid } = useFormAndValidation({ name: '', email: ''});
-    const navigate = useNavigate();
     const [isChange, setIsChange] = useState(false);
     
     const handleBtnEditClick = () => {

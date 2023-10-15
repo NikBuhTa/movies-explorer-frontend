@@ -15,7 +15,6 @@
     height: 45px;
     background-color: #FF6838;
     color: white;
-    margin-top: 69px;
     border-radius: 3px;
     font-family: 'Inter', Arial, sans-serif;
     font-size: 14px;
@@ -80,6 +79,11 @@
     line-height: 12px;
 }
 
+.form__error_position_onbutton{
+    margin-top: 59px;
+    text-align: center;
+}
+
 .authform__text{
     box-sizing: border-box;
     width: 100%;
@@ -120,8 +124,11 @@
         padding-bottom: 30px;
     }
 
-    .authform__button{
+    .form__error_position_onbutton{
         margin-top: 157px;
+    }
+
+    .authform__button{
         font-size: 12px;
         line-height: 15px;
     }

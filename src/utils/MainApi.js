@@ -52,6 +52,10 @@ class MainApi {
     updateUserData({name, email}) {
         return this._makeRequest('users/me', 'PATCH', {name, email})
     }
+
+    addFilm({info}) {
+        return this._makeRequest('movies', 'POST', {info}) //доделать АПИ для карточек
+    }
 }
 
 const mainApi = new MainApi(options);

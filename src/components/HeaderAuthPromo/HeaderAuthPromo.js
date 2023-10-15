@@ -7,12 +7,12 @@ import { MobileSizeContext } from "../../contexts/MobileSizeContext";
 import SideBarIcon from "../SideBarIcon/SideBarIcon";
 
 function HeaderAuthPromo({}) {
-  const isMobileSize = useContext(MobileSizeContext);
+  const {isTabSize} = useContext(MobileSizeContext);
 
   return(
         <Header children={
             <>
-              {isMobileSize ? 
+              {isTabSize ? 
               <SideBarIcon styles='header__sidebar-span_color_white' />:
               <>
                 <Navigation styles="nav_position_header" children={

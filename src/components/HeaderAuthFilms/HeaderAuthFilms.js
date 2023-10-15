@@ -8,12 +8,12 @@ import SideBarIcon from "../SideBarIcon/SideBarIcon";
 import { useLocation } from "react-router-dom";
 
 function HeaderAuthFilms(){
-  const isMobileSize = useContext(MobileSizeContext);
+  const {isTabSize} = useContext(MobileSizeContext);
   const location = useLocation();
   return(
     <Header children={
         <>
-          {isMobileSize ? 
+          {isTabSize ? 
           <SideBarIcon styles='header__sidebar-span_color_black' /> : 
           <>
             <Navigation styles='nav_position_header' children={
