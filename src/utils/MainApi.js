@@ -1,5 +1,5 @@
 const options = {
-    baseUrl: 'http://localhost:2500',
+    baseUrl: 'https://api.moviesexplorer.nomoredomainsrocks.ru',
     headers: {
         "Accept" : "application/json",
         'Content-Type': 'application/json'
