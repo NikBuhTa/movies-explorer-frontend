@@ -52,3 +52,5 @@
 @import url('../src/components/LinkTemplate/LinkTemplate.css');
 @import url('../src/components/SideBar/SideBar.css');
 @import url('../src/components/SideBarIcon/SideBarIcon.css');
+
+@import url('../src/components/Loader/Loader.css');

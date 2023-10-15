@@ -23,6 +23,7 @@
     height: 151px;
     width: 100%;
     object-fit: cover;
+    cursor: pointer;
     border-radius: 10px 10px 0 0;
 }
 
@@ -43,6 +44,9 @@
     font-size: 13px;
     font-weight: 500;
     line-height: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .movies__card-label{
@@ -100,12 +104,24 @@
     line-height: 13px;
 }
 
+.movies__card-link{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 151px;
+}
+
 @media screen and (max-width: 997px) {
     .movies__card{
         max-width: 339px;
     }
 
     .movies__card-image{
+        height: 190px;
+    }
+
+    .movies__card-link{
         height: 190px;
     }
 }
@@ -117,5 +133,9 @@
 
     .movies__card-image{
         height: 168px;
+    }
+
+    .movies__card-link{
+        height: 190px;
     }
 }

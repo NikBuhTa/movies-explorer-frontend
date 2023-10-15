@@ -53,8 +53,16 @@ class MainApi {
         return this._makeRequest('users/me', 'PATCH', {name, email})
     }
 
-    addFilm({info}) {
-        return this._makeRequest('movies', 'POST', {info}) //доделать АПИ для карточек
+    addFilm(info) {
+        return this._makeRequest('movies', 'POST', info)
+    }
+
+    getFilms() {
+        return this._makeRequest('movies', 'GET');
+    }
+
+    deleteFilm(id) {
+        return this._makeRequest(`movies/${id}`, 'DELETE');
     }
 }
 

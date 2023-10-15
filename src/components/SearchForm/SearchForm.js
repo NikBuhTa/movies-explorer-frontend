@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import path from '../../images/search.svg'
 import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
-function SearchForm({onSubmit}){
+function SearchForm({onSubmit, type = false}){
     const { values, handleChange, resetForm, setValues } = useFormAndValidation({film: ''});
     const [ isShort, setIsShort ] = useState(false);
 
@@ -19,7 +19,7 @@ function SearchForm({onSubmit}){
     useEffect(() => {
         resetForm()
         setValues({film: ''})
-        if (localStorage.getItem('data')) {
+        if (localStorage.getItem('data') && (!type)) {
             setIsShort(JSON.parse(localStorage.getItem('data')).short)
             setValues({film: JSON.parse(localStorage.getItem('data')).keyWord})
         }

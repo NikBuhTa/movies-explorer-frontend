@@ -1,25 +1,33 @@
 import React, { useEffect } from "react";
 import MoviesPage from "../MoviesPage/MoviesPage";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import { savedFilms } from "../../utils/constants";
 import HeaderAuthFilms from "../HeaderAuthFilms/HeaderAuthFilms";
 import Footer from "../Footer/Footer";
 import WebPage from "../WebPage/WebPage";
 import SideBar from "../SideBar/SideBar";
+import Loader from "../Loader/Loader";
 
-function SavedMovies({handleMoveToSavedMovies, isSavedMovies}){
+function SavedMovies({handleLoadSavedMovies, films, handleDeleteBtn, handleSearchSavedMoviesBtnSubmit, isLoading}){
+
+    useEffect(() => {
+        handleLoadSavedMovies();
+    }, [])
 
     return(
         <WebPage content={
             <>
-                <HeaderAuthFilms isSavedMovies={isSavedMovies} />
+                <HeaderAuthFilms />
                 <main className="main">
                     <SideBar />
-                    <MoviesPage children={
+                    <MoviesPage  type={true} children={
                         <>
-                            <MoviesCardList films={savedFilms} type={true} styles="movies-list_position_savedmovies"/>
+                            {isLoading
+                            ? <Loader />
+                            : <MoviesCardList handleDeleteBtn={(film) => handleDeleteBtn(film)} films={films} type={true} styles="movies-list_position_savedmovies"/>}
                         </>
-                    }/>
+                    } 
+                    onSubmit={(keyWord, short) => handleSearchSavedMoviesBtnSubmit(keyWord, short)}
+                    />
                 </main>
                 <Footer />
             </>

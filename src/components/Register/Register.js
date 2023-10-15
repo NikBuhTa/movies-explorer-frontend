@@ -5,7 +5,7 @@ import AuthForm from "../AuthForm/AuthForm";
 import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 import { useNavigate } from "react-router-dom";
 
-function Register({onRegister,}) {
+function Register({onRegister, isDisabled}) {
     const { values, handleChange, errors, isValid, resetForm, setValues } = useFormAndValidation({ email: '', password: '', name: '' });
 
     useEffect(() => {
@@ -30,6 +30,7 @@ function Register({onRegister,}) {
                         onChange = {handleChange}
                         userData = {values}
                         vldProps = {{errors, isValid}}
+                        isDisabled={isDisabled}
                     />
                 </main>
             </>

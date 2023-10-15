@@ -1,6 +1,6 @@
 import React from "react";
 
-function ButtonTemplate({isDisabled = true, type = 'button', styles = '', text, onClick = () => {console.log('Worked')}}) {
+function ButtonTemplate({isDisabled = true, type = 'button', styles = '', text, onClick = () => {}}) {
     return(
         <>
             {isDisabled

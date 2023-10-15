@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SearchForm from "../SearchForm/SearchForm";
 
-function MoviesPage({children, onSubmit}){
+function MoviesPage({children, onSubmit, type}){
     return(
         <section className="movies">
-            <SearchForm onSubmit={(keyWord, short) => onSubmit(keyWord, short)}/>
+            <SearchForm type={type} onSubmit={(keyWord, short) => onSubmit(keyWord, short)}/>
             {children}
         </section>
     );

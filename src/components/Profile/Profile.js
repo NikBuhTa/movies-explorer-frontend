@@ -7,13 +7,14 @@ import SideBar from "../SideBar/SideBar";
 import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Profile({onLogout, onUpdate, err}) {
+function Profile({onLogout, onUpdate, err, isOk, setIsOk, isDisabled}) {
     const currentUser = useContext(CurrentUserContext);
 
     const { values, handleChange, errors, isValid, resetForm, setValues, setIsValid } = useFormAndValidation({ name: '', email: ''});
     const [isChange, setIsChange] = useState(false);
-    
-    const handleBtnEditClick = () => {
+
+    const handleBtnEditClick = (e) => {
+        e.preventDefault();
         setIsChange(true);
     }
 
@@ -27,8 +28,11 @@ function Profile({onLogout, onUpdate, err}) {
             name: currentUser.name || '', email: currentUser.email || ''
         })
         setIsValid(true);
+        return () => {
+            setIsOk(false)
+        }
+
     }, [])
-//баг с двойной отправкой данных. Исправить
     return(
         <WebPage content={
             <>
@@ -37,7 +41,7 @@ function Profile({onLogout, onUpdate, err}) {
                 <main className="main">
                     <section className="profile">
                         <h1 className="profile__title">Привет, {currentUser?.name}!</h1>
-                        <form className="profile__form" onSubmit={handleSubmit} >
+                        <form className="profile__form" >
                             <div className="profile__container">
                                 <label className="profile__label">Имя</label>
                                 <input id="name" className="profile__input" name="name" type="text" onChange={handleChange} value={values?.name} required placeholder="Имя" minLength={2} maxLength={30}/>
@@ -50,13 +54,15 @@ function Profile({onLogout, onUpdate, err}) {
                             <span className="form__error">{!isValid && errors.email}</span>
                         {isChange ? 
                         <div className="profile__control-container">
-                            <SpanTemplate className='profile__error' content={err.status !== undefined ? `${err.status} ${err.text}` : ''} />
-                            <ButtonTemplate isDisabled={!isValid} type='submit' styles='profile__button-save' text='Сохранить' />
+                            {isOk
+                            ? <SpanTemplate className='profile__ok' content={'Данные успешно изменены'} />
+                            : <SpanTemplate className='profile__error' content={err.status !== undefined ? `${err.status} ${err.text}` : ''} />}
+                            <ButtonTemplate isDisabled={isDisabled ? isDisabled : !isValid} type='submit' onClick={handleSubmit} styles='profile__button-save' text='Сохранить' />
                         </div> :
                             <div className="profile__control-container">
                                 <SpanTemplate className='profile__error' content='' />
                                 <ButtonTemplate isDisabled={false} type='button' onClick={handleBtnEditClick} styles='profile__button-edit' text='Редактировать' />
-                                <ButtonTemplate isDisabled={false} type='button' onClick={onLogout} styles='profile__button-exit' text='Выйти из&nbsp;аккаунта' />
+                                <ButtonTemplate isDisabled={false} type='submit' onClick={onLogout} styles='profile__button-exit' text='Выйти из&nbsp;аккаунта' />
                             </div>}
                         </form>
                     </section>

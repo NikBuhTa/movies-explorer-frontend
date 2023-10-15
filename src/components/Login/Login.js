@@ -4,9 +4,8 @@ import HeaderAuthForm from "../HeaderAuthForm/HeaderAuthForm";
 import AuthForm from "../AuthForm/AuthForm";
 import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
-function Login({onLogin}) {
+function Login({onLogin, isDisabled, err}) {
     const { values, handleChange, errors, isValid, resetForm, setValues } = useFormAndValidation({ email: '', password: ''});
-
     useEffect(() => {
         resetForm();
         setValues({
@@ -29,6 +28,8 @@ function Login({onLogin}) {
                         onChange = {handleChange}
                         userData = {values}
                         vldProps = {{errors, isValid}}
+                        isDisabled={isDisabled}
+                        err={err}
                     />
                 </main>
             </>
