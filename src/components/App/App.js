@@ -94,9 +94,6 @@ function App() {
         const {_id, name, email} = user.data;
         setCurrentUser({_id, name, email})
       })
-      .catch(e => {
-          console.log(e)
-      })
   }
 
   const handleUpdProfile = (info) => {
