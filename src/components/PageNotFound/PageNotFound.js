@@ -12,7 +12,7 @@ function PageNotFound(){
             <section className="page-notfound">
                 <h1 className="page-notfound__title">404</h1>
                 <p className="page-notfound__text">Страница не&nbsp;найдена</p>
-                <ButtonTemplate type="button" onClick={handleClick} styles='page-notfound__link' text='Назад'/>
+                <ButtonTemplate isDisabled={false} type="button" onClick={handleClick} styles='page-notfound__link' text='Назад'/>
             </section>
         </main>
     );

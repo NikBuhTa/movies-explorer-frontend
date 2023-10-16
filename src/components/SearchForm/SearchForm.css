@@ -112,6 +112,11 @@
     transform: translate(12px, -8px);
 }
 
+.search__button_disabled{
+    cursor: default;
+    opacity: .7;
+}
+
 @media screen and (max-width: 987px) {
     .search__choice{
         padding-bottom: 51px;

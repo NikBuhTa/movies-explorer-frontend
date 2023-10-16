@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect, useState} from "react";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import ButtonTemplate from "../ButtonTemplate/ButtonTemplate";
 import MoviesPage from "../MoviesPage/MoviesPage";
@@ -8,7 +8,7 @@ import HeaderAuthFilms from "../HeaderAuthFilms/HeaderAuthFilms";
 import SideBar from "../SideBar/SideBar";
 import Loader from "../Loader/Loader";
 
-function Movies({onSubmit, films, onAddBtnClick, handleLikeBtn, handleLoadMovies, isLoading}){
+function Movies({onSubmit, films, onAddBtnClick, handleLikeBtn, handleLoadMovies, isLoading, isFirstRender}){
 
     useEffect(() => {
         if (localStorage.getItem('data')) {
@@ -27,7 +27,7 @@ function Movies({onSubmit, films, onAddBtnClick, handleLikeBtn, handleLoadMovies
                             {isLoading
                             ? <Loader />
                             :   <>
-                                    <MoviesCardList handleLikeBtn={(film) => handleLikeBtn(film)} films={films} type={false}/>
+                                    <MoviesCardList isFirstRender={isFirstRender} handleLikeBtn={(film) => handleLikeBtn(film)} films={films} type={false}/>
                                     {JSON.parse(localStorage.getItem('data')) ? 
                                         films.length === JSON.parse(localStorage.getItem('data')).films.length ? '' :
                                         <ButtonTemplate onClick={onAddBtnClick} isDisabled={false} styles='movies__button' text='Ещё' /> : ''

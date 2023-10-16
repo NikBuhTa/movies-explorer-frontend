@@ -23,7 +23,7 @@ import { filmsFilter } from '../../utils/filmsFilter.js';
 import { setDurationNumber, setDurationTime } from '../../utils/setDuration.js';
 import filmsRender from '../../utils/filmsRender.js';
 import addFilmsRender from '../../utils/addFilmsRender.js';
-import { ImgUrl } from '../../utils/constants.js';
+import { ImgUrl, MobWidth, TabWidth } from '../../utils/constants.js';
 
 function App() {
   const navigate = useNavigate();
@@ -38,6 +38,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isOk, setIsOk] = useState(false)
   const [isDisabled, setIsDisabled] = useState(false);
+  const [isFirstRender, setIsFirstRender] = useState(false);
+
+  const handleFirstRender = () => {
+    if (localStorage.getItem('data') === null) {
+      setIsFirstRender(true);
+    }
+  }
 
   const toggleSideBar = () => {
     setIsSideBar(!isSideBar);
@@ -86,6 +93,7 @@ function App() {
     mainApi.logout().catch(e => alert(e));
     setLoggedIn(false);
     setCurrentUser({});
+    localStorage.removeItem('data')
   }
 
   const handleLoadProfile = () => {
@@ -113,6 +121,14 @@ function App() {
       .finally(() => setIsDisabled(false))
   }
 
+  const handleCheckData = (values) => {
+    if ((values.name === currentUser.name) && (values.email === currentUser.email)){
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false)
+    }
+  }
+
   const handleFilmsSaveAndRender = (res, keyWord, short, savedMovies) => {
     const filteredFilms = filmsFilter(res, keyWord, short);
       filteredFilms.forEach(film => {
@@ -134,8 +150,9 @@ function App() {
   const handleCompareFilms = (films, savedMovies) => {
       if (savedMovies.length !== 0) {
         films.forEach(film => {
+          film.checked = false;
           savedMovies.forEach(saved => {
-            if ((saved.nameRU === film.nameRU) || (saved.nameEN === film.nameEN)){
+            if ((saved.description === film.description)){
               film.checked = true;
             }
           })
@@ -170,6 +187,9 @@ function App() {
       setIsLoading(true);
       const res = await mainApi.getFilms()
       const result = filmsFilter(res.data, keyWord, short);
+      result.forEach(item => {
+        item.duration = setDurationTime(item.duration)
+      })
       setSavedFilms(filmsRender(result, isMobSize, isTabSize));
     } catch(e) {
       if (e.status === 401) {
@@ -210,7 +230,7 @@ function App() {
     setFilms([...films,...addFilmsRender(data, isMobSize, isTabSize)])
   }
 
-  const handleLikeBtn = (film) => {
+  const handleCardBtn = (film) => {
     if (film.checked === false) {
       film.duration = setDurationNumber(film.duration);
       mainApi.addFilm({
@@ -236,8 +256,8 @@ function App() {
     } else {
       mainApi.getFilms().then(res => {
         res.data.forEach(item => {
-          if ((film.nameRU === item.nameRU) || (film.nameEU=== item.nameEU)) {
-            mainApi.deleteFilm(item._id)
+          if ((film.description === item.description)) {
+            mainApi.deleteFilm(item._id) 
           }
         })
       }).catch(e => {
@@ -253,8 +273,13 @@ function App() {
   const handleDeleteBtn = async (film) => {
     try{
       const res = await mainApi.deleteFilm(film._id);
-      const films = await mainApi.getFilms();
-      setSavedFilms([...films.data]);
+      let arr = [];
+      savedFilms.forEach(item => {
+        if (item._id !== film._id){
+          arr.push(item);
+        }
+      })
+      setSavedFilms([...arr]);
     }
     catch(e) {
       if (e.status === 401) {
@@ -284,9 +309,13 @@ function App() {
   }
 
   const handleResizeFunc = () => {
-    setIsTabSize(window.innerWidth < 880);
-    setIsMobSize(window.innerWidth < 450);
+    setIsTabSize(window.innerWidth < TabWidth);
+    setIsMobSize(window.innerWidth < MobWidth);
   }
+
+  useEffect(() => {
+    setIsFirstRender(false);
+  }, [localStorage.getItem('data')])
 
   useEffect(() => {
     if (localStorage.getItem('data')) {
@@ -298,8 +327,9 @@ function App() {
     window.addEventListener('resize', () => {
       setTimeout(handleResizeFunc, 30)
     });
-    setIsTabSize(window.innerWidth < 880);
-    setIsMobSize(window.innerWidth < 450);
+    setIsTabSize(window.innerWidth < TabWidth);
+    setIsMobSize(window.innerWidth < MobWidth);
+    handleFirstRender();
     handleLoadProfile()
       .then(res => setLoggedIn(true))
       .catch(err => {
@@ -312,8 +342,8 @@ function App() {
     <SideBarContext.Provider value={{isSideBar, toggleSideBar}}>
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>
-        <Route path='/signup' element={ <Register onRegister={handleRegSubmit} isDisabled={isDisabled} /> } />
-        <Route path='/signin' element={ <Login onLogin={handleLogin} err={error} isDisabled={isDisabled}/> } />
+        <Route path='/signup' element={ <Register onRegister={handleRegSubmit} isDisabled={isDisabled} loggedIn={loggedIn} /> } />
+        <Route path='/signin' element={ <Login onLogin={handleLogin} err={error} isDisabled={isDisabled} loggedIn={loggedIn}/> } />
         <Route path='/' element={ <WebPage content={
         <>
           {loggedIn ?
@@ -330,9 +360,9 @@ function App() {
             </> }
         </>
         }/> } />
-        <Route path='/movies' element={<ProtectedRoute element={ Movies } isLoading={isLoading} handleLoadMovies={handleLoadMovies} handleLikeBtn={(film) => handleLikeBtn(film)} onAddBtnClick={() => handleAddBtn(films, isMobSize, isTabSize)} setFilms={(films) => handleSetFilms(films)} loggedIn={loggedIn} films={films} onSubmit={(keyWord, short) => handleSearchMoviesBtnSubmit(keyWord, short)}/>} />
+        <Route path='/movies' element={<ProtectedRoute element={ Movies } isFirstRender={isFirstRender} setIsFirstRender={(boolean) => setIsFirstRender(boolean)} handleFirstRender={handleFirstRender} isLoading={isLoading} handleLoadMovies={handleLoadMovies} handleLikeBtn={(film) => handleCardBtn(film)} onAddBtnClick={() => handleAddBtn(films, isMobSize, isTabSize)} setFilms={(films) => handleSetFilms(films)} loggedIn={loggedIn} films={films} onSubmit={(keyWord, short) => handleSearchMoviesBtnSubmit(keyWord, short)}/>} />
         <Route path='/saved-movies' element={<ProtectedRoute element={ SavedMovies } isLoading={isLoading} handleSearchSavedMoviesBtnSubmit={(keyWord, short) => handleSearchSavedMoviesBtnSubmit(keyWord, short)} films={savedFilms} handleDeleteBtn={(film) => handleDeleteBtn(film)} handleLoadSavedMovies={handleLoadSavedMovies} loggedIn={loggedIn}/>} /> 
-        <Route path='/profile' element={<ProtectedRoute element={ Profile } isDisabled={isDisabled} setIsOk={(boolean) =>handleSetIsOk(boolean)} isOk={isOk} err={error} onUpdate={handleUpdProfile} onLogout={handleLogout} loggedIn={loggedIn}/>} />
+        <Route path='/profile' element={<ProtectedRoute element={ Profile } handleCheckData={(values) => handleCheckData(values)} isDisabled={isDisabled} setIsOk={(boolean) =>handleSetIsOk(boolean)} isOk={isOk} err={error} onUpdate={handleUpdProfile} onLogout={handleLogout} loggedIn={loggedIn}/>} />
         <Route path='*' element={ <WebPage content={
           <PageNotFound />
         }/>} />

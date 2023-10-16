@@ -1,3 +1,5 @@
+import { ShortFilmsDuration } from "./constants";
+
 export function filmsFilter(data, keyWord, short) {
     const regEx = new RegExp(keyWord, 'i')
     const filteredFilms = [];
@@ -9,7 +11,7 @@ export function filmsFilter(data, keyWord, short) {
     })
     if (short === true) {
         filteredFilms.forEach(film => {
-            if (film.duration <= 40) {
+            if (film.duration <= ShortFilmsDuration) {
                 result.push(film);
             }
         })

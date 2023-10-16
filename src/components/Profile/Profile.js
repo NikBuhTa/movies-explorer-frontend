@@ -7,7 +7,7 @@ import SideBar from "../SideBar/SideBar";
 import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Profile({onLogout, onUpdate, err, isOk, setIsOk, isDisabled}) {
+function Profile({onLogout, onUpdate, err, isOk, setIsOk, isDisabled, handleCheckData}) {
     const currentUser = useContext(CurrentUserContext);
 
     const { values, handleChange, errors, isValid, resetForm, setValues, setIsValid } = useFormAndValidation({ name: '', email: ''});
@@ -22,6 +22,11 @@ function Profile({onLogout, onUpdate, err, isOk, setIsOk, isDisabled}) {
         e.preventDefault();
         onUpdate(values);
     }
+
+    useEffect(() => {
+        handleCheckData(values);
+    }, [values])
+
     useEffect(() => {
         resetForm();
         setValues({
@@ -31,7 +36,6 @@ function Profile({onLogout, onUpdate, err, isOk, setIsOk, isDisabled}) {
         return () => {
             setIsOk(false)
         }
-
     }, [])
     return(
         <WebPage content={
@@ -49,7 +53,7 @@ function Profile({onLogout, onUpdate, err, isOk, setIsOk, isDisabled}) {
                             <span className="form__error">{!isValid && errors.name}</span>
                             <div className="profile__container">
                                 <label className="profile__label">E-mail</label>
-                                <input id="email" className="profile__input" name="email" type="email" onChange={handleChange} value={values?.email} required placeholder="E-mail" minLength={2} maxLength={30}/>
+                                <input id="email" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" className="profile__input" name="email" type="email" onChange={handleChange} value={values?.email} required placeholder="E-mail" minLength={2} maxLength={30}/>
                             </div>
                             <span className="form__error">{!isValid && errors.email}</span>
                         {isChange ? 

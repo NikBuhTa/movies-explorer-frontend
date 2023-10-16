@@ -3,7 +3,7 @@ import path from '../../images/search.svg'
 import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
 function SearchForm({onSubmit, type = false}){
-    const { values, handleChange, resetForm, setValues } = useFormAndValidation({film: ''});
+    const { values, handleChange, resetForm, setValues, errors, isValid, } = useFormAndValidation({film: ''});
     const [ isShort, setIsShort ] = useState(false);
 
     const handleClick = () => {
@@ -29,10 +29,11 @@ function SearchForm({onSubmit, type = false}){
         <form className="search" onSubmit={handleSubmit}>
             <div className="search__container">
                 <label className="search__input">
-                    <input className="search__input-item" name="film" type="text" onChange={handleChange} required value={values?.film} placeholder="Фильм" />
+                    <input className="search__input-item" name="film" type="text" onChange={handleChange} required value={values?.film} minLength={1} placeholder="Фильм" />
                 </label>
-                <button type="submit" className="search__button link-active"><img src={ path } alt='кнопка поиска'/></button>
+                <button type="submit" disabled={!isValid} className={`search__button ${!isValid ? 'search__button_disabled' : 'link-active'}`}><img src={ path } alt='кнопка поиска'/></button>
             </div>
+            <span className="form__error">{!isValid && errors.film}</span>
             <div className="search__choice">
                 <label className="search__thumb-label link-active">
                     <input className="search__thumb" type="checkbox" checked={isShort} onChange={handleClick}/>

@@ -16,7 +16,7 @@ function AuthForm({buttonStyle = '', path, buttonText, spanText, linkText, isLog
                     <span className="form__error">{!vldProps.isValid && vldProps.errors.name}</span>
                 </>}
                 <label className="form__label">E-mail</label>
-                    <input className="form__input" name="email" type="email" onChange={onChange} value={userData?.email} required placeholder="E-mail" minLength={2} maxLength={30}/>
+                    <input className="form__input" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" name="email" type="email" onChange={onChange} value={userData?.email} required placeholder="E-mail" minLength={2} maxLength={30}/>
                 <span className="form__error">{!vldProps.isValid && vldProps.errors.email}</span>
                 <label className="form__label">Пароль</label>
                     <input className="form__input" name="password" type="password" onChange={onChange} value={userData?.password} required placeholder="Пароль" minLength={2} maxLength={30}/>
