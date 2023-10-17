@@ -23,11 +23,12 @@ import { filmsFilter } from '../../utils/filmsFilter.js';
 import { setDurationNumber, setDurationTime } from '../../utils/setDuration.js';
 import filmsRender from '../../utils/filmsRender.js';
 import addFilmsRender from '../../utils/addFilmsRender.js';
-import { ImgUrl, MobWidth, TabWidth } from '../../utils/constants.js';
+import { ImgUrl, MobWidth, PCTabWidth, TabWidth } from '../../utils/constants.js';
 
 function App() {
   const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
+  const [isPCTabSize, setIsPCTabSize] = useState(false)
   const [isTabSize, setIsTabSize] = useState(false);
   const [isMobSize, setIsMobSize] = useState(false);
   const [isSideBar, setIsSideBar] = useState(false);
@@ -144,7 +145,7 @@ function App() {
       result = filteredFilms;
     }
     localStorage.setItem('data', JSON.stringify({films: result, keyWord, short}));
-    setFilms(filmsRender(result, isMobSize, isTabSize));
+    setFilms(filmsRender(result, isMobSize, isTabSize, isPCTabSize));
   }
 
   const handleCompareFilms = (films, savedMovies) => {
@@ -190,7 +191,7 @@ function App() {
       result.forEach(item => {
         item.duration = setDurationTime(item.duration)
       })
-      setSavedFilms(filmsRender(result, isMobSize, isTabSize));
+      setSavedFilms(filmsRender(result, isMobSize, isTabSize, isPCTabSize));
     } catch(e) {
       if (e.status === 401) {
         alert('Вы не авторизованы');
@@ -210,13 +211,13 @@ function App() {
       savedMovies = await mainApi.getFilms();
       result = handleCompareFilms(stash.films, savedMovies.data);
       localStorage.setItem('data', JSON.stringify({films: result, keyWord: stash.keyWord, short: stash.short}))
-      setFilms(filmsRender(result, isMobSize, isTabSize));
+      setFilms(filmsRender(result, isMobSize, isTabSize, isPCTabSize));
     } catch(e) {
       if (e.status === 404){
         stash.films.forEach(film => film.checked = false)
         result = stash.films  ;
         localStorage.setItem('data', JSON.stringify({films: result, keyWord: stash.keyWord, short: stash.short}))
-        setFilms(filmsRender(result, isMobSize, isTabSize));
+        setFilms(filmsRender(result, isMobSize, isTabSize, isPCTabSize));
       }
       if (e.status === 401) {
         alert('Вы не авторизованы');
@@ -227,7 +228,7 @@ function App() {
   }
 
   const handleAddBtn = (data, isMobSize, isTabSize) => {
-    setFilms([...films,...addFilmsRender(data, isMobSize, isTabSize)])
+    setFilms([...films,...addFilmsRender(data, isMobSize, isTabSize, isPCTabSize)])
   }
 
   const handleCardBtn = (film) => {
@@ -246,6 +247,16 @@ function App() {
         thumbnail: film.image.formats.thumbnail.url,
         movieId: film.id,
       })
+      .then(res => {
+        const result = films;
+        result.forEach(item => {
+          if (item.description === film.description) {
+            item.checked = true;
+            item.duration = setDurationTime(item.duration)
+          }
+          setFilms(filmsRender(result, isMobSize, isTabSize, isPCTabSize));
+        })
+      })
       .catch(e => {
         if (e.status === 401) {
           alert('Вы не авторизованы');
@@ -260,6 +271,13 @@ function App() {
             mainApi.deleteFilm(item._id) 
           }
         })
+        const result = films;
+          result.forEach(item => {
+            if (item.description === film.description) {
+              item.checked = false;
+            }
+        })
+        setFilms(filmsRender(result, isMobSize, isTabSize, isPCTabSize));
       }).catch(e => {
         if (e.status === 401) {
           alert('Вы не авторизованы');
@@ -309,8 +327,9 @@ function App() {
   }
 
   const handleResizeFunc = () => {
-    setIsTabSize(window.innerWidth < TabWidth);
-    setIsMobSize(window.innerWidth < MobWidth);
+    setIsPCTabSize(window.innerWidth <= PCTabWidth)
+    setIsTabSize(window.innerWidth <= TabWidth);
+    setIsMobSize(window.innerWidth <= MobWidth);
   }
 
   useEffect(() => {
@@ -319,16 +338,17 @@ function App() {
 
   useEffect(() => {
     if (localStorage.getItem('data')) {
-      setFilms(filmsRender(JSON.parse(localStorage.getItem('data')).films, isMobSize, isTabSize));
+      setFilms(filmsRender(JSON.parse(localStorage.getItem('data')).films, isMobSize, isTabSize, isPCTabSize));
     }
-  }, [isMobSize, isTabSize])
+  }, [isMobSize, isTabSize, isPCTabSize])
 
   useEffect(() => {
     window.addEventListener('resize', () => {
       setTimeout(handleResizeFunc, 30)
     });
-    setIsTabSize(window.innerWidth < TabWidth);
-    setIsMobSize(window.innerWidth < MobWidth);
+    setIsPCTabSize(window.innerWidth <= PCTabWidth)
+    setIsTabSize(window.innerWidth <= TabWidth);
+    setIsMobSize(window.innerWidth <= MobWidth);
     handleFirstRender();
     handleLoadProfile()
       .then(res => setLoggedIn(true))
