@@ -1,0 +1,36 @@
+.about-project{
+    color: black;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 110px 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-project__descriptions{
+    box-sizing: border-box;
+    padding-top: 70px;
+    gap: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 987px) {
+    .about-project{
+        padding: 90px 50px;
+    }
+}
+
+@media screen and (max-width: 627px) {
+    .about-project{
+        padding: 70px 18px;
+    }
+
+    .about-project__descriptions{
+        flex-direction: column;
+        align-items: center;
+        padding-top: 60px;
+        gap: 56px;
+    }
+}

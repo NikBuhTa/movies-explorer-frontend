@@ -1,0 +1,16 @@
+.menu__item{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    margin-right: 40px;
+}
+
+.menu__item:last-of-type{
+    margin-right: 0;
+}
+
+@media screen and (max-width: 627px) {
+    .menu__item{
+        margin-right: 24px;
+    }
+}

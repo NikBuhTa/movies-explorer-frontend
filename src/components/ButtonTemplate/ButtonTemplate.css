@@ -1,0 +1,22 @@
+.button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    transition: .4s;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 500;
+}
+
+.button:hover{
+    opacity: .8;
+}
+
+.button_unactive{
+    cursor: default;
+    opacity: .5;
+}
+
+.button_unactive:hover{
+    opacity: .5;
+}

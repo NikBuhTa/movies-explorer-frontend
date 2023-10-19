@@ -1,0 +1,46 @@
+.authheader {
+    box-sizing: border-box;
+    max-width: 396px;
+    margin: 0;
+    padding: 70px 0 40px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 40px;
+}
+
+.authheader__image{
+    cursor: pointer;
+}
+
+.authheader__image:hover{
+    opacity: .7;
+}
+
+.authheader__title{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .authheader{
+        padding-top: 232px;
+    }
+}
+
+@media screen and (max-width: 456px) {
+    .authheader{
+        padding: 56px 0 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+}

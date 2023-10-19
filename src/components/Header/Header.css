@@ -1,0 +1,68 @@
+.header {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0 70px;
+    background-color: #465DFF;
+    align-items: center;
+    justify-content:space-between;
+    position: relative;
+}
+
+.header__logo {
+    margin: 18px 0 18px 0;
+    padding: 0;
+    width: 38px;
+    height: 38px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.header__logo:hover{
+    opacity: .7;
+}
+
+.header__account-link {
+    display: flex;
+    margin: 0;
+    padding: 2px;
+    height: 28px;
+    width: 96px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    cursor: pointer;
+}
+
+.header__account-link-promo {
+    background-color: white;
+}
+
+.header__account-link-films {
+    background-color: #F9F9F9;
+}
+
+.header__location_films {
+    color: black;
+    background-color: white;
+}
+
+@media screen and (max-width: 997px) { 
+    .header{
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 627px) {
+    .header{
+        padding: 0 14px;
+    }
+}

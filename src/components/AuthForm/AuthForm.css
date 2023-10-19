@@ -1,0 +1,145 @@
+.authform{
+    box-sizing: border-box;
+    padding-bottom: 70px;
+    margin: 0 auto;
+    max-width: 396px;
+    width: 396px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authform__button {
+    box-sizing: border-box;
+    width: 100%;
+    height: 45px;
+    background-color: #FF6838;
+    color: white;
+    border-radius: 3px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+}
+
+.form{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 396px;
+    width: 100%;
+}
+
+.form__label{
+    margin: 0;
+    padding: 0;
+    color: #A0A0A0;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+}
+
+.form__input{
+    box-sizing: border-box;
+    margin: 10px 0 10px;
+    padding: 15px;
+    width: 100%;
+    height: 46px;
+    background-color: #F9F9F9;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', Arial, sans-serif;
+    color: black;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.form__input:last-of-type{
+    margin-bottom: 0;
+}
+
+.form__input:focus{
+    outline-color:#A0A0A0;
+}
+
+.form__error{
+    box-sizing: border-box;
+    visibility: none;
+    margin: 0;
+    min-height: 12px;
+    padding-top: 10px;
+    color: #EE3465;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+}
+
+.form__error_position_onbutton{
+    margin-top: 59px;
+    text-align: center;
+}
+
+.authform__text{
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 16px;
+    color: #A0A0A0;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.authform__link{
+    text-decoration: none;
+    color: #FF6838;
+    transition: .3s;
+}
+
+.authform__link:hover{
+    opacity: .7;
+}
+
+.authform__login-button{
+    margin-top: 160px;
+}
+
+@media screen and (max-width: 950px) {
+    .authform{
+        padding-bottom: 232px;
+    }
+}
+
+@media screen and (max-width: 456px) {
+    .authform{
+        max-width: 260px;
+        padding-bottom: 30px;
+    }
+
+    .form__error_position_onbutton{
+        margin-top: 157px;
+    }
+
+    .authform__button{
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .authform__text{
+        padding-top: 14px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .authform__login-button{
+        margin-top: 248px;
+    }
+}
